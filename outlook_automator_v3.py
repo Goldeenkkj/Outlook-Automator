@@ -18,7 +18,7 @@ class OutlookAutomator:
         """Inicializa o automator do Outlook, conectando-se à aplicação Outlook."""
         pythoncom.CoInitialize()
         self.outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
-        shared_mailbox = self.outlook.Folders.Item("pagamentos@farmausa.com")
+        shared_mailbox = self.outlook.Folders.Item("@.com")
         self.inbox = shared_mailbox.Folders.Item("Caixa de Entrada")
 
 
@@ -442,3 +442,4 @@ if __name__ == "__main__":
     output_directory = r"C:\Temp\Outlook_PDFs"
     automator = OutlookAutomator()
     automator.process_emails(output_directory)
+
